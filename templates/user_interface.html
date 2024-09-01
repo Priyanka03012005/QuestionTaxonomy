@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Questions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h2>Generate Questions Based on Random Input</h2>
+    <form action="/user" method="POST">
+        <label for="random_question">Enter a Random Question Keyword:</label><br>
+        <input type="text" id="random_question" name="random_question"><br>
+        
+        <label for="taxonomy_level">Select Bloom's Taxonomy Level:</label><br>
+        <select id="taxonomy_level" name="taxonomy_level">
+            <option value="Remember">Remember</option>
+            <option value="Understand">Understand</option>
+            <option value="Apply">Apply</option>
+            <option value="Analyze">Analyze</option>
+            <option value="Evaluate">Evaluate</option>
+            <option value="Create">Create</option>
+        </select><br><br>
+        
+        <input type="submit" value="Generate">
+    </form>
+</body>
+</html>

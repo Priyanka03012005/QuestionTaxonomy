@@ -38,7 +38,7 @@ def init_db():
 def index():
     return render_template('index.html')
 
-@app.route('/create', methods=['GET', 'POST'])
+@app.route('/admin/create', methods=['GET', 'POST'])
 def create_question():
     if request.method == 'POST':
         question_text = request.form['question_text']
@@ -56,13 +56,31 @@ def create_question():
         return redirect(url_for('view_questions'))
     return render_template('create_question.html')
 
-@app.route('/questions')
+@app.route('/admin/questions')
 def view_questions():
     db = get_db()
     cursor = db.cursor()
     cursor.execute('SELECT question_text, taxonomy_level, topic FROM Question')
     questions = cursor.fetchall()
     return render_template('view_questions.html', questions=questions)
+
+@app.route('/user', methods=['GET', 'POST'])
+def user_interface():
+    if request.method == 'POST':
+        random_question = request.form['random_question']
+        taxonomy_level = request.form['taxonomy_level']
+        
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute('''
+            SELECT question_text FROM Question
+            WHERE taxonomy_level = ? AND question_text LIKE ?
+        ''', (taxonomy_level, f'%{random_question}%'))
+        questions = cursor.fetchall()
+        
+        return render_template('user_view.html', questions=questions, random_question=random_question)
+    
+    return render_template('user_interface.html')
 
 if __name__ == '__main__':
     init_db()
