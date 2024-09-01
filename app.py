@@ -185,6 +185,3 @@ def index():
             return redirect(url_for('user_interface'))
     return render_template('index.html')
 
-if __name__ == '__main__':
-    init_db()
-    app.run(debug=True)
