@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generate Questions</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h2>Generate Questions Based on Random Input</h2>
-    <form action="/user" method="POST">
-        <label for="random_question">Enter a Random Question Keyword:</label><br>
-        <input type="text" id="random_question" name="random_question"><br>
-        
-        <label for="taxonomy_level">Select Bloom's Taxonomy Level:</label><br>
+    <h1>Generate Questions</h1>
+    <form method="POST">
+        <label for="random_question">Enter a Keyword:</label>
+        <input type="text" id="random_question" name="random_question" required><br><br>
+        <label for="taxonomy_level">Select Taxonomy Level:</label>
         <select id="taxonomy_level" name="taxonomy_level">
             <option value="Remember">Remember</option>
             <option value="Understand">Understand</option>
@@ -21,8 +17,17 @@
             <option value="Evaluate">Evaluate</option>
             <option value="Create">Create</option>
         </select><br><br>
-        
-        <input type="submit" value="Generate">
+        <button type="submit">Generate</button>
     </form>
+    {% if questions %}
+        <h2>Generated Questions:</h2>
+        <ul>
+            {% for question in questions %}
+            <li>{{ question[0] }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <a href="{{ url_for('user_history') }}">View Search History</a> |
+    <a href="{{ url_for('logout') }}">Logout</a>
 </body>
 </html>

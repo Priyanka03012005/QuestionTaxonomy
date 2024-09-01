@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search History</title>
+</head>
+<body>
+    <h1>Your Search History</h1>
+    <ul>
+        {% for term, level, time in history %}
+        <li>{{ time }}: Searched for "{{ term }}" at {{ level }} level</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('user_interface') }}">Back to Search</a>
+</body>
+</html>
