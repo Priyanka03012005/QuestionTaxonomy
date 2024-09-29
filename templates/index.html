@@ -1,10 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom's Taxonomy Overview</title>
+    <link rel="stylesheet" href="static\css\home.css">
 </head>
 <body>
-    <h1>Welcome to the Question Forming Website</h1>
+    <header>
+        <div class="logo"><img src="static\images\logo.png" class="logo-image">EDU-GUIDE</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">How It Works</a></li>
+                <li><a href="#">Generate Questions</a></li>
+                <!-- <li><button class="login-btn">Login</button></li> -->
+            </ul>
+        </nav>
+        <button class="login-btn">Login</button>
+    </header>
+    <div class="header-title">
+        <h1>EDU-GUIDE</h1>
+        <p>Generating Effective Questions using the concept of Bloom’s taxonomy</p>
+    </div>
+    <!-- <h1>Welcome to the Question Forming Website</h1> -->
+    <main>
+        <section class="taxonomy-overview">
+            <h2>BLOOM'S TAXONOMY</h2>
+            <p>OVERVIEW:</p>
+            <p>Bloom's Taxonomy is a framework for categorizing educational goals and objectives. Developed by Benjamin Bloom and his colleagues in 1956, it is used to guide the development of curriculum and assessments. The taxonomy is often depicted as a pyramid with six levels, each representing a different type of cognitive skill.</p>
+            <img src="static\images\btimage.png" alt="Bloom's Taxonomy Pyramid" class="taxonomy-image">
+            
+            <ol>
+                <li>Remembering: Recalling facts and basic concepts.This is the foundational level, involving the retrieval of information from memory.
+                    <ul><li>Examples: Memorizing a list of historical dates, recalling a formula in math.</li></ul></li>
+                <li>Understanding: Comprehending the meaning of information. This involves interpreting, summarizing, and explaining concepts.
+                    <ul><li>Examples: Explaining a concept in your own words, summarizing a passage of text.</li></ul></li>
+                <li>Applying: Using information in new situations.This involves implementing knowledge in practical or theoretical situations.
+                    <ul><li>Examples: Using a formula to solve a math problem, applying a theory to a real-world scenario.</li></ul></li>
+                <li>Analyzing: Breaking down information into components. This involves understanding the structure of information and how parts relate to the whole.
+                    <ul><li>Examples: Analyzing the arguments in an essay, examining the plot structure of a novel.</li></ul></li>
+                <li>Evaluating: Making judgments based on criteria and standards. This involves assessing the value or quality of information and arguments.
+                    <ul><li>Examples: Critiquing a research study, evaluating the effectiveness of a solution to a problem.</li></ul></li>
+                <li>Creating: Generating new ideas or products. This is the highest level, involving the synthesis of information to produce original work.
+                    <ul><li>Examples: Designing a new experiment, writing a novel, creating a business plan.</li></ul></li>
+            </ol>
+        </section>
+
+        <section class="cta-buttons">
+            <p>Not yet signed up</p>
+            <button onclick="location.href='signup.html'">Sign Up</button>
+            <p>OR</p>
+            <button onclick="location.href='login.html'">Login</button>
+            <p>OR</p>
+            <button onclick="location.href='generate.html'">Start with Generating Question</button>
+            <p>OR</p>
+            <button onclick="location.href='how.html'">Know How It Works</button>
+        </section>
+    </main>
+    <script src="static\js\home.js"></script>
     {% if 'user_id' in session %}
         <p>Hello, {{ session['username'] }}!</p>
         <a href="{{ url_for('logout') }}">Logout</a>

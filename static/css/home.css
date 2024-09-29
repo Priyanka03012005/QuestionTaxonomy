@@ -1,0 +1,178 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Header Section */
+.header-title {
+    background-color: #f1d1a1;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+header {
+    background-color: #f1d1a1; /* Light peach color for the header background */
+    display: flex;
+    justify-content: space-between; /* Ensures logo, nav, and login button are spaced correctly */
+    padding: 10px;
+    align-items: center; /* Centers items vertically */
+    flex-wrap: wrap; /* Ensures content wraps properly on smaller screens */
+    border-bottom: 0.5px solid #043574;
+    position: relative;
+}
+
+header .logo {
+    font-size: 1em; /* Larger for better readability */
+    font-weight: bold;
+    color: #043574; /* Same color as the nav */
+    flex-grow: 1; /* Ensures the logo takes available space */
+}
+
+nav {
+    flex-grow: 1; /* Allows the nav to take up more space in the middle */
+}
+
+nav ul {
+    list-style: none;
+    display: flex; /* Displays items in a row */
+    gap: 25px; /* Adds space between list items */
+    margin: 0;
+    padding: 0px;
+    justify-content: flex-end; /* Ensures the nav aligns to the right */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #043574; /* White text color for contrast */
+    font-size: 1em; /* Slightly larger for better readability */
+    padding: 8px 15px; /* Adds padding to the clickable area */
+}
+
+nav ul li a:hover {
+    background-color: #2e7d3232; /* Hover effect on nav links */
+    border-radius: 20px; /* Rounded corners on hover */
+}
+
+.login-btn {
+    background-color: #043574; /* Darker blue for login button */
+    border: none;
+    padding: 10px 20px; /* Increased padding for better clickability */
+    color: white;
+    cursor: pointer;
+    border-radius: 10px; /* Rounded corners for the login button */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+    margin-left: 20px; /* Adds some space between nav and button */
+}
+
+.login-btn:hover {
+    background-color: #254a9c; /* Lighter blue on hover */
+}
+
+@media (max-width: 768px) {
+    /* Make the nav responsive on smaller screens */
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stacks nav links vertically */
+        gap: 10px;
+        width: 100%;
+    }
+
+    nav ul li {
+        width: 100%; /* Makes links span the full width */
+    }
+
+    .login-btn {
+        width: 100%; /* Full width for the login button on small screens */
+        text-align: center;
+    }
+}
+.logo {
+    display: flex;
+    align-items: center; /* Align the image and text vertically */
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #043574;
+}
+
+.logo img {
+    padding-left: 20px;
+    width: 15px; /* Set the width of the logo image */
+    height: auto; /* Ensure the image keeps its aspect ratio */
+    margin-right: 10px; /* Add some space between the image and the text */
+}
+
+h1 {
+    font-size: 48px;
+    color: #1a2a4e;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #4f618d;
+    font-size: 18px;
+}
+
+/* Main Content */
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.taxonomy-overview h2 {
+    font-size: 32px;
+    text-align: center;
+    color: #333;
+}
+
+.taxonomy-overview p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.taxonomy-image {
+    display: block;
+    margin: 0 auto 20px auto;
+    max-width: 100%;
+}
+
+.taxonomy-overview ol {
+    font-size: 16px;
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.cta-buttons {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cta-buttons button {
+    background-color: #b2c9e1;
+    border: none;
+    color: #fff;
+    padding: 12px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    width: 250px;
+}
+
+.cta-buttons button:hover {
+    background-color: #4f618d;
+}
+
+.cta-buttons p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+}
+
