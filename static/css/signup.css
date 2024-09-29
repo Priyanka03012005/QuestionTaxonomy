@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 900px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.left-section {
+    width: 40%;
+    background-color: #f2d7a1;
+    padding: 40px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-section .logo img {
+    width: 60px;
+    margin-bottom: 20px;
+}
+
+.left-section h1 {
+    font-size: 32px;
+    color: #23406c;
+    margin-bottom: 10px;
+}
+
+.left-section p {
+    color: #23406c;
+    font-size: 18px;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+.right-section {
+    width: 60%;
+    background-color: white;
+    padding: 40px 30px;
+}
+
+.right-section h2 {
+    font-size: 24px;
+    color: #23406c;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #23406c;
+}
+
+form input[type="text"],
+form input[type="password"],
+form select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.signup-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.signup-buttons button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #cfe0f7;
+    color: #23406c;
+    font-size: 16px;
+}
+
+.signup-buttons button:hover {
+    background-color: #aac4eb;
+}
+
+.login-option p {
+    text-align: center;
+    color: #999;
+}
+
+.login-option a {
+    color: #23406c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-option a:hover {
+    text-decoration: underline;
+}
+

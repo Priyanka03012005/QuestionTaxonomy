@@ -1,22 +1,118 @@
-<!DOCTYPE html>
-<html>
+<!-- <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Signup</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edu-Guide Signup</title>
+    <link rel="stylesheet" href="static\css\signup.css">
 </head>
 <body>
-    <h1>Signup</h1>
-    <form method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
-        <label for="role">Role:</label>
-        <select id="role" name="role">
-            <option value="user">User</option>
-            <option value="admin">Admin</option>
-        </select><br><br>
-        <button type="submit">Signup</button>
-    </form>
-    <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a>.</p>
+    <div class="container">
+        <div class="left-section">
+            <div class="logo">
+                <img src="static\images\image.png" alt="Logo">
+            </div>
+            <h1>EDU-GUIDE</h1>
+            <p>Generating Effective Questions using the concept of Bloom’s taxonomy</p>
+        </div>
+
+        <div class="right-section">
+            <h2>WELCOME</h2>
+            <form method="POST"></form>
+            <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+                
+
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+                <label for="role">Role:</label>
+                <select id="role" name="role">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select><br><br>
+
+                <div class="options">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                </div>
+
+                <div class="signup-buttons">
+                    <button type="submit">Signup</button>
+                </div>
+
+                <div class="login-option">
+                    <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="static\js\signup.js"></script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edu-Guide Signup</title>
+    <link rel="stylesheet" href="static\css\signup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="logo">
+                <img src="static\images\image.png" alt="Logo">
+            </div>
+            <h1>EDU-GUIDE</h1>
+            <p>Generating Effective Questions using the concept of Bloom’s taxonomy</p>
+        </div>
+
+        <div class="right-section">
+            <h2>WELCOME</h2>
+            <!-- Properly opened the form tag -->
+            <form method="POST" action="/signup"> <!-- Include action attribute to specify where the form data should go -->
+                
+                <!-- Username field -->
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+                <!-- Password field -->
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+                <!-- Role selection -->
+                <!-- <div class="form-group"> -->
+                    <label for="role">Role:</label>
+                    <select id="role" name="role">
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                <!-- </div> -->
+                
+
+                <!-- Remember me checkbox -->
+                <div class="options">
+                    <label>
+                        <input type="checkbox" name="remember"> Remember me
+                    </label>
+                </div>
+
+                <!-- Signup button -->
+                <div class="signup-buttons">
+                    <button type="submit">Signup</button>
+                </div>
+
+                <!-- Login option -->
+                <div class="login-option">
+                    <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+                </div>
+
+            </form> <!-- Properly closed the form tag -->
+        </div>
+    </div>
+    <script src="static\js\signup.js"></script>
 </body>
 </html>
