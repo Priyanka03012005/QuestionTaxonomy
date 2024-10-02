@@ -106,7 +106,7 @@ def logout():
     return redirect(url_for('login'))
 
 # Admin route to create questions
-@app.route('/admin/create', methods=['GET', 'POST'])
+@app.route('/admin/create-question', methods=['GET', 'POST'])
 def create_question():
     if 'user_id' not in session or session.get('role') != 'admin':
         flash('Unauthorized access!', 'error')
@@ -140,31 +140,31 @@ def view_questions():
     return render_template('view_questions.html', questions=questions)
 
 # User route to search for questions
-@app.route('/user', methods=['GET', 'POST'])
+@app.route('/generate-question', methods=['GET', 'POST'])
 def user_interface():
     if 'user_id' not in session or session.get('role') != 'user':
         flash('Unauthorized access!', 'error')
         return redirect(url_for('login'))
     
     if request.method == 'POST':
-        random_question = request.form['random_question']
+        keyword = request.form['keyword']
         taxonomy_level = request.form['taxonomy_level']
         
         db = get_db()
         cursor = db.cursor()
-        cursor.execute('SELECT question_text FROM Question WHERE taxonomy_level = ? AND question_text LIKE ?', (taxonomy_level, f'%{random_question}%'))
+        cursor.execute('SELECT question_text FROM Question WHERE taxonomy_level = ? AND question_text LIKE ?', (taxonomy_level, f'%{keyword}%'))
         questions = cursor.fetchall()
         
         # Track the search activity
-        cursor.execute('INSERT INTO SearchHistory (user_id, search_term, taxonomy_level) VALUES (?, ?, ?)', (session['user_id'], random_question, taxonomy_level))
+        cursor.execute('INSERT INTO SearchHistory (user_id, search_term, taxonomy_level) VALUES (?, ?, ?)', (session['user_id'], keyword, taxonomy_level))
         db.commit()
         
-        return render_template('user_view.html', questions=questions, random_question=random_question)
+        return render_template('user_view.html', questions=questions, keyword=keyword)
     
     return render_template('user_interface.html')
 
 # User route to view search history
-@app.route('/user/history')
+@app.route('/generate-question/history')
 def user_history():
     if 'user_id' not in session or session.get('role') != 'user':
         flash('Unauthorized access!', 'error')
@@ -180,10 +180,16 @@ def user_history():
 def index():
     if 'user_id' in session:
         if session.get('role') == 'admin':
-            return redirect(url_for('create_question'))
+            return render_template('index.html', role='admin')
+            # return redirect(url_for('create_question'))
         elif session.get('role') == 'user':
-            return redirect(url_for('user_interface'))
+            # return redirect(url_for('user_interface'))
+            return render_template('index.html', role='user')
     return render_template('index.html')
+
+@app.route('/how-it-works')
+def how():
+    return render_template('how.html')
 
 if __name__ == '__main__':
     init_db()

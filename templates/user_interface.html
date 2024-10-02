@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generate Questions</title>
+    <link rel="stylesheet" href="static\css\nav.css">
+    <link rel="stylesheet" href="static\css\generate.css">
 </head>
 <body>
+    {% include("nav.html") %}
+    
+    <div class="container">
+    <header>
     <h1>Generate Questions</h1>
+    </header>
+    <main>
+        <div class="form-container">
     <form method="POST">
-        <label for="random_question">Enter a Keyword:</label>
-        <input type="text" id="random_question" name="random_question" required><br><br>
+        <label for="keyword">Enter a Keyword:</label>
+        <input type="text" id="keyword" name="keyword" required><br><br>
         <label for="taxonomy_level">Select Taxonomy Level:</label>
         <select id="taxonomy_level" name="taxonomy_level">
             <option value="Remember">Remember</option>
@@ -17,8 +28,9 @@
             <option value="Evaluate">Evaluate</option>
             <option value="Create">Create</option>
         </select><br><br>
-        <button type="submit">Generate</button>
+        <button id="generate-btn" type="submit">Generate</button>
     </form>
+</div>
     {% if questions %}
         <h2>Generated Questions:</h2>
         <ul>
@@ -29,5 +41,7 @@
     {% endif %}
     <a href="{{ url_for('user_history') }}">View Search History</a> |
     <a href="{{ url_for('logout') }}">Logout</a>
+</main>
+</div>
 </body>
 </html>

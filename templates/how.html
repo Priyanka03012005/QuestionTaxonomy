@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works</title>
+    <link rel="stylesheet" href="static\css\how.css">
+    <link rel="stylesheet" href="static\css\nav.css">
+</head>
+<body>
+    {% include("nav.html") %}
+    <div class="container">
+        <div class="header-title">
+            <h1>HOW IT WORKS...</h1>
+        </div>
+
+        <main>
+            <section class="info-section">
+                <div class="logo">
+                    <img src="static\images\cprogramming.png" alt="C Programming Logo">
+                </div>
+                <center>
+                <div class="steps">
+                    <p>This contains information about C language only.</p>
+                    <p><strong>Step 1:</strong> Enter any C language keyword.</p>
+                    <p><strong>Step 2:</strong> Select any one from the given options.<br> 
+                    Select the type in which you want the question.</p>
+
+                    <p>Note: The types are from Bloom’s Taxonomy which include CREATING, EVALUATING, ANALYZING, APPLYING, UNDERSTANDING, REMEMBERING.</p>
+                    <a href="home.html" target="_blank">(Know more about Bloom’s Taxonomy)</a>
+                    <p><strong>Step 3:</strong> Click on "GENERATE" button.<br> 
+                    You will get your requested question.</p>
+
+                    <a href="{{ url_for('user_interface') }}" class="generate-btn">Start with generating question</a>
+                </div>
+            </section>
+        </center>
+        <br>
+            <img src="static\images\btbulb.png" alt="Bloom's Taxonomy Bulb">
+        </main>
+    </div>
+</body>
+</html>

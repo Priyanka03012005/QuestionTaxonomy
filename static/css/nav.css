@@ -1,0 +1,87 @@
+/* Header Section */
+#header {
+    background-color: #f1d1a1;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 0.5px solid #043574;
+    position: relative;
+}
+
+#logo {
+    padding-left: 20px ;
+    font-size: 1em; /* Reduced the font size */
+    font-weight: bold;
+    color: #043574;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add space between the logo image and title */
+}
+
+#logo-image {
+    
+    width: 15px; /* Adjust the width of the logo image */
+    height: auto; /* Keep the aspect ratio */
+}
+
+#navbar {
+    flex-grow: 1;
+}
+
+#nav-list {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end;
+}
+
+#nav-list li a {
+    text-decoration: none;
+    color: #043574;
+    font-size: 1em;
+    padding: 8px 15px;
+}
+
+#nav-list li a:hover {
+    background-color: #2e7d3232;
+    border-radius: 20px;
+}
+
+#login-btn {
+    background-color: #043574;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    margin-left: 20px;
+}
+
+#login-btn:hover {
+    background-color: #254a9c;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #nav-list {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    #login-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
