@@ -3,9 +3,9 @@
         <img id="logo-image" src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
         <span>EDU-GUIDE</span>
         {% if session['role'] == 'admin' %}
-            <span class="role-text">Admin</span>
+            <div class="role-text">Admin</div>
         {% elif session['role'] == 'user' %}
-            <span class="role-text">User</span>
+            <div class="role-text">User</div>
         {% endif %}
     </div>
 
