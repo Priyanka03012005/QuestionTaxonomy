@@ -4,16 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create a Question</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> -->
+     <link rel="stylesheet" href="static\css\nav.css">
+    <link rel="stylesheet" href="static\css\create.css">
 </head>
 <body>
-    <h1 style="text-align: center;">Admin page</h1>
-    <h2>Create a New Question</h2>
-    <form action="/admin/create-question" method="POST">
-        <label for="question_text">Question:</label><br>
-        <textarea id="question_text" name="question_text" rows="4" cols="50"></textarea><br>
+    {% include("nav.html") %}
+    
+    <div class="container">
+    <header>
+    <!-- <h1 style="text-align: center;">Admin page</h1> -->
+    <h1>Create a New Question</h1>
+</header>
+<main>
+    <form action="/create-question" method="POST">
+        <label for="question_text">Question:</label>
+        <textarea id="question_text" name="question_text" rows="1" cols="60" required ></textarea><br><br>
         
-        <label for="taxonomy_level">Bloom's Taxonomy Level:</label><br>
+        <label for="taxonomy_level">Bloom's Taxonomy Level:</label>
         <select id="taxonomy_level" name="taxonomy_level">
             <option value="Remember">Remember</option>
             <option value="Understand">Understand</option>
@@ -21,9 +29,9 @@
             <option value="Analyze">Analyze</option>
             <option value="Evaluate">Evaluate</option>
             <option value="Create">Create</option>
-        </select><br>
+        </select><br><br>
         
-        <label for="topic">C Language Topic:</label><br>
+        <label for="topic">C Language Topic:</label>
         <select id="topic" name="topic">
             <option value="Introduction to C">Introduction to C</option>
             <option value="Data Types and Variables">Data Types and Variables</option>
@@ -43,12 +51,14 @@
         </select>
 <br><br>        
         
-        <input type="submit" value="Submit">
+<button type="submit" id="generate-btn" value="Submit">Submit</button>
     </form>
     <br>
     <br>
-    <a href="{{ url_for('view_questions') }}">View All Questions</a>
+    <a style="text-align: center;" href="{{ url_for('view_questions') }}">View All Questions</a>
     <br><br>
-    <a href="{{ url_for('logout') }}">Logout</a>
+    <!-- <a href="{{ url_for('logout') }}">Logout</a> -->
+</main>
+</div>
 </body>
 </html>

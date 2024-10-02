@@ -116,7 +116,7 @@ def logout():
     return redirect(url_for('login'))
 
 # Admin route to create questions
-@app.route('/admin/create-question', methods=['GET', 'POST'])
+@app.route('/create-question', methods=['GET', 'POST'])
 def create_question():
     if 'user_id' not in session or session.get('role') != 'admin':
         flash('Unauthorized access!', 'error')
@@ -137,7 +137,7 @@ def create_question():
     
     return render_template('create_question.html')
 
-@app.route('/admin/questions')
+@app.route('/questions')
 def view_questions():
     if 'user_id' not in session or session.get('role') != 'admin':
         flash('Unauthorized access!', 'error')

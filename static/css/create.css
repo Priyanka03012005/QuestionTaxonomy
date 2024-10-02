@@ -1,0 +1,131 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4e0bc;
+    color: #333;
+    text-align: center;
+}
+
+/* Container styling for form */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* Header Styling */
+header h1 {
+    color: #20478b;
+    font-size: 2.5em;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Form container */
+.form-container {
+    margin-bottom: 20px;
+}
+
+.form-container label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 1.1em;
+    color: #20478b;
+}
+
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.form-container input:focus,
+.form-container select:focus {
+    border-color: #20478b;
+    outline: none;
+}
+
+/* Button Styling */
+button#generate-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #a8c9ff;
+    border: none;
+    color: #20478b;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button#generate-btn:hover {
+    background-color: #87b1f8;
+}
+
+/* Container for multiple buttons */
+.buttons-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.secondary-btn {
+    padding: 12px 20px;
+    background-color: #a8c9ff;
+    border: none;
+    color: #20478b;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 48%;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.secondary-btn:hover {
+    background-color: #87b1f8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .buttons-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .secondary-btn {
+        width: 100%;
+    }
+}
+textarea#question_text {
+    /* width: 100%; Or set a fixed width like 500px */
+    /* height: 20px;  */
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: vertical; /* Allows the user to resize the height */
+}
+
