@@ -1,12 +1,17 @@
 from flask import Flask, render_template, request, redirect, url_for, session, g, flash
 import sqlite3 as sql
+import os
 from werkzeug.security import generate_password_hash, check_password_hash
+import logging
 
 app = Flask(__name__)
-app.secret_key = "question"
 
-# Database configuration
-DATABASE = 'database.db'
+# Configuration
+app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'default_secret')  # Use environment variable or a default value
+DATABASE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'database.db')  # Absolute path to database
+
+# Setup logging
+logging.basicConfig(filename='app.log', level=logging.DEBUG)
 
 def get_db():
     if 'db' not in g:
@@ -25,6 +30,7 @@ def init_db():
         db = get_db()
         cursor = db.cursor()
         
+        # Create User table
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS User (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -34,6 +40,7 @@ def init_db():
             )
         ''')
         
+        # Create SearchHistory table
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS SearchHistory (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -45,6 +52,7 @@ def init_db():
             )
         ''')
         
+        # Create Question table
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS Question (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -74,6 +82,7 @@ def signup():
             return redirect(url_for('login'))
         except sql.IntegrityError:
             flash('Username already exists!', 'error')
+            logging.error(f'Username conflict for: {username}')
     
     return render_template('signup.html')
 
@@ -96,6 +105,7 @@ def login():
             return redirect(url_for('index'))
         else:
             flash('Invalid credentials!', 'error')
+            logging.warning(f'Invalid login attempt for: {username}')
     
     return render_template('login.html')
 
@@ -181,9 +191,7 @@ def index():
     if 'user_id' in session:
         if session.get('role') == 'admin':
             return render_template('index.html', role='admin')
-            # return redirect(url_for('create_question'))
         elif session.get('role') == 'user':
-            # return redirect(url_for('user_interface'))
             return render_template('index.html', role='user')
     return render_template('index.html')
 
