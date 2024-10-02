@@ -61,7 +61,7 @@
         </section>
     </main>
     <script src="static\js\home.js"></script>
-    {% if 'user_id' in session %}
+    <!-- {% if 'user_id' in session %}
         <p>Hello, {{ session['username'] }}!</p>
         <a href="{{ url_for('logout') }}">Logout</a>
         {% if session['role'] == 'admin' %}
@@ -74,6 +74,6 @@
     {% else %}
         <a href="{{ url_for('signup') }}">Signup</a> |
         <a href="{{ url_for('login') }}">Login</a>
-    {% endif %}
+    {% endif %} -->
 </body>
 </html>

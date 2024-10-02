@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Generated Questions</title>
+    <link rel="stylesheet" href="static\css\nav.css">
+    <link rel="stylesheet" href="static\css\view.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h2>Generated Questions for "{{ keyword }}"</h2>
-    <ul>
+    {% include("nav.html") %}
+    <div class="container">
+    <main id="container" style="justify-content: center;">
+    <h1 style="text-align: center;">Generated Questions for "{{ keyword }}"</h1>
+    <ul style="padding: 50;">
         {% if questions %}
             {% for question in questions %}
                 <li>{{ question[0] }}</li>
@@ -18,5 +23,7 @@
         {% endif %}
     </ul>
     <a href="/generate-question">Back</a>
+</div>
+</main>
 </body>
 </html>

@@ -1,11 +1,15 @@
 <header id="header">
     <div id="logo">
         <img id="logo-image" src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
-
-        <!-- <img id="logo-image" src="static/images/logo.png" alt="Logo"> Ensure the correct path to your logo image -->
         <span>EDU-GUIDE</span>
+        {% if session['role'] == 'admin' %}
+            <span class="role-text">Admin</span>
+        {% elif session['role'] == 'user' %}
+            <span class="role-text">User</span>
+        {% endif %}
     </div>
     
+
     <nav id="navbar">
         <ul id="nav-list">
             <li id="nav-home"><a href="{{ url_for('index') }}">Home</a></li>
@@ -19,30 +23,19 @@
             {% endif %}
         </ul>
     </nav>
+
     {% if 'user_id' in session %}
-    {% if session['role'] == 'admin' %}
-    <button class="login-btn" id="login-btn" onclick="location.href=''">Admin</button>
-    <button class="login-btn" id="login-btn" onclick="location.href='logout'">Logout</button>
-    {% elif session['role'] == 'user' %}
-    <button class="login-btn" id="login-btn" onclick="location.href=''">User</button>
-    <button class="login-btn" id="login-btn" onclick="location.href='logout'">Logout</button>
-    {% endif %}
+    <div class="profile-container">
+        <!-- <div class="profile-circle">
+            {% if session['role'] == 'admin' %}
+            <span>A</span>
+            {% elif session['role'] == 'user' %}
+            <span>U</span>
+            {% endif %}
+        </div> -->
+        <button class="login-btn" id="login-btn" onclick="location.href='logout'">Logout</button>
+    </div>
     {% else %}
     <button class="login-btn" id="login-btn" onclick="location.href='login'">Login</button>
     {% endif %}
 </header>
-
-<!-- {% if 'user_id' in session %}
-        <p>Hello, {{ session['username'] }}!</p>
-        <a href="{{ url_for('logout') }}">Logout</a>
-        {% if session['role'] == 'admin' %}
-            <a href="{{ url_for('create_question') }}">Create Question</a> |
-            <a href="{{ url_for('view_questions') }}">View All Questions</a>
-        {% elif session['role'] == 'user' %}
-            <a href="{{ url_for('user_interface') }}">Generate Questions</a> |
-            <a href="{{ url_for('user_history') }}">View Search History</a>
-        {% endif %}
-    {% else %}
-        <a href="{{ url_for('signup') }}">Signup</a> |
-        <a href="{{ url_for('login') }}">Login</a>
-    {% endif %} -->
