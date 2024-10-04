@@ -25,13 +25,6 @@
 
     {% if 'user_id' in session %}
     <div class="profile-container">
-        <!-- <div class="profile-circle">
-            {% if session['role'] == 'admin' %}
-            <span>A</span>
-            {% elif session['role'] == 'user' %}
-            <span>U</span>
-            {% endif %}
-        </div> -->
         <button class="login-btn" id="login-btn" onclick="location.href='logout'">Logout</button>
     </div>
     {% else %}

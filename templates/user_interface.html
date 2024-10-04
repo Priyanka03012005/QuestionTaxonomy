@@ -20,7 +20,8 @@
         <label for="keyword">Enter a Keyword:</label>
         <input type="text" id="keyword" name="keyword" required><br><br>
         <label for="taxonomy_level">Select Taxonomy Level:</label>
-        <select id="taxonomy_level" name="taxonomy_level">
+        <select id="taxonomy_level" name="taxonomy_level" required>
+            <option value="" disabled selected>Select type</option>
             <option value="Remember">Remember</option>
             <option value="Understand">Understand</option>
             <option value="Apply">Apply</option>
